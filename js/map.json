@@ -1,0 +1,41 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Mobile site of optus in 2018",
+    "layer":[
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk9/refs/heads/main/data/SA4_2016_AUST.json",
+                "format": {"type": "topojson", "feature": "SA4_2016_AUST"}
+            },
+            "mark": {
+                "type": "geoshape",
+                "stroke": "black",
+                "color":"white",
+                "strokeWidth": 0.5
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk9/refs/heads/main/data/mobile-sites-optus-2018.csv",
+                "format":{"type": "csv"}
+            },
+            "mark": "circle",
+            "encoding": {
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "size": {"value": 10},
+                "color": {"value": "steelblue"}
+            }
+            
+        }
+    ]
+    
+}
