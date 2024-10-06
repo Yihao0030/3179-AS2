@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk10/refs/heads/main/data/Mobile%20services%20in%20operation%20(SIOs)%20by%20provider.csv"
+  },
+  "mark": "bar",
+  "params": [
+    {
+      "name": "operator_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "telstra", "optus", "tpg"],
+        "labels": ["Show All", "telstra", "optus", "tpg"],
+        "name": "operator selection"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "operator_selection == null || datum.operator == operator_selection"
+    }
+  ],
+  "encoding": {
+    "x": {"field": "date", "type": "ordinal", "title": "Month of the year"},
+    "y": {"field": "sio", "type": "quantitative", "title": null}
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "operator",
+          "type": "nominal",
+          "scale": {
+            "domain": ["telstra", "optus", "tpg"],
+            "range": ["#e7ba52", "#c7c7c7", "#aec7e8"]
+          },
+          "title": "Operators"
+        },
+        "tooltip": [
+          {"field": "operator", "type": "nominal"},
+          {"field": "sio", "type": "quantitative"},
+          {"field": "date", "type": "ordinal"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "top",
+        "dx": 0,
+        "fontSize": 9,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "sio", "type": "nominal"},
+        "color": {"value": "black"}
+      }
+    }
+  ],
+  "config": {}
+}
