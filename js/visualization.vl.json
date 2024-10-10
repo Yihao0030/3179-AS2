@@ -35,7 +35,7 @@
             "type": "nominal",
             "scale": {
               "domain": ["telstra", "optus", "tpg"],
-              "range": ["#e7ba52", "#c7c7c7", "#aec7e8"]
+              "range": ["red", "blue", "green"]
             },
             "title": "MNO"
           },
