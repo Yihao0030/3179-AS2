@@ -1,0 +1,20 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title":"Total site by MNO and state or territories - 2018 to 2023",
+    "data": {"url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20and%20state%20or%20territory%20-%202018%20to%202023.csv"},
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "column": {"field": "State/territory"},
+      "x": {"field": "Year", "type": "ordinal"},
+      "y": {"field": "Number", "type": "quantitative"},
+      "color": {"field": "MNO", "type": "nominal"},
+      "tooltip":[
+        {"field": "MNO", "type": "nominal"},
+        {"field":"Number", "type": "quantitative"}
+      ]
+    }
+  }
+  
