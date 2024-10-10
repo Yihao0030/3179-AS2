@@ -10,7 +10,12 @@
       "column": {"field": "State/territory"},
       "x": {"field": "Year", "type": "ordinal"},
       "y": {"field": "Number", "type": "quantitative"},
-      "color": {"field": "MNO", "type": "nominal"},
+      "color": {"field": "MNO", 
+      "type": "nominal",
+      "scale": {
+                  "domain": ["Optus", "Telstra", "TPG"],
+                  "range": ["red", "blue", "green"]}
+      },
       "tooltip":[
         {"field": "MNO", "type": "nominal"},
         {"field":"Number", "type": "quantitative"}
