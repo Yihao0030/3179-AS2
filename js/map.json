@@ -1,15 +1,21 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 600,
-    "title": "Mobile site of optus in 2018", 
-    "data": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "title": {
+    "text": "Mobile Sites in Australia",
+    "fontSize": 20,
+    "subtitle": "Filtered by Year: {year_selection}, MNO: {MNO_selection}",
+    "subtitleFontStyle": "italic"
+  },
+  "data": {
     "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/mobile-sites.csv",
-    "format":{"type": "csv"}
-    },
-    "params": [
+    "format": {"type": "csv"}
+  },
+  "params": [
     {
       "name": "year_selection",
+      "value": 2018,
       "bind": {
         "input": "select",
         "options": [2018, 2019, 2020, 2021, 2022],
@@ -18,77 +24,77 @@
       }
     },
     {
-        "name": "MNO_selection",
-        "bind": {
-            "input": "select",
-            "options": ["Optus", "Telstra", "TPG"],
-            "labels": ["Optus", "Telstra", "TPG"],
-            "name": "MNO Selection"
-        }
+      "name": "MNO_selection",
+      "value": "Optus",
+      "bind": {
+        "input": "select",
+        "options": [null, "Optus", "Telstra", "TPG"],
+        "labels": ["All", "Optus", "Telstra", "TPG"],
+        "name": "MNO Selection"
+      }
     }
   ],
   "transform": [
+    {"filter": "datum.Year == year_selection"},
+    {"filter": "MNO_selection == null || datum.MNO == MNO_selection"}
+  ],
+  "layer": [
     {
-        "filter": "year_selection == null || datum.Year == year_selection"
+      "data": {
+        "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk9/refs/heads/main/data/SA4_2016_AUST.json",
+        "format": {"type": "topojson", "feature": "SA4_2016_AUST"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "gray",
+        "strokeWidth": 0.5,
+        "fill": "#f0f0f0"
+      }
     },
     {
-        "filter": "MNO_selection == null || datum.MNO == MNO_selection"
+      "mark": {"type": "circle", "opacity": 0.8},
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "size": {
+          "field": "MNO",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Optus", "Telstra", "TPG"],
+            "range": [50, 100, 75]
+          },
+          "legend": {"title": "MNO Size"}
+        },
+        "color": {
+          "field": "MNO",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Optus", "Telstra", "TPG"],
+            "range": ["#FFA500", "#0000FF", "#008000"]
+          },
+          "legend": {"title": "Mobile Network Operator"}
+        },
+        "tooltip": [
+          {"field": "Year", "type": "nominal"},
+          {"field": "MNO", "type": "nominal"},
+          {"field": "Latitude", "type": "quantitative", "format": ".4f"},
+          {"field": "Longitude", "type": "quantitative", "format": ".4f"},
+          {"field": "UMTS900", "type": "nominal"},
+          {"field": "UMTS2100", "type": "nominal"},
+          {"field": "LTE700", "type": "nominal"},
+          {"field": "LTE900", "type": "nominal"},
+          {"field": "LTE1800", "type": "nominal"},
+          {"field": "LTE2300", "type": "nominal"},
+          {"field": "LTE2600", "type": "nominal"},
+          {"field": "RFNSA ID", "type": "nominal", "title": "RFNSA ID"},
+          {"field": "Co_funded", "type": "nominal", "title": "Co-funded"},
+          {"field": "Co_contribution_program", "type": "nominal", "title": "Co-contribution Program"}
+        ]
+      }
     }
   ],
-    "layer":[
-        {
-            "data": {
-                "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk9/refs/heads/main/data/SA4_2016_AUST.json",
-                "format": {"type": "topojson", "feature": "SA4_2016_AUST"}
-            },
-            "mark": {
-                "type": "geoshape",
-                "stroke": "black",
-                "color":"white",
-                "strokeWidth": 0.5
-            }
-        },
-        {
-           
-            "mark": "circle",
-            "encoding": {
-                "longitude": {
-                    "field": "Longitude",
-                    "type": "quantitative"
-                },
-                "latitude": {
-                    "field": "Latitude",
-                    "type": "quantitative"
-                },
-                "size": {"value": 10},
-                "color": {
-                    "field": "MNO",
-                    "type": "nominal",
-                    "scale": {
-                        "domain": ["Optus", "Telstra", "TPG"],
-                        "range": ["red", "blue", "green"]},
-                    "legend": {"title": "MNO"}
-                    },
-                "tooltip":[
-                    {"field": "Year", "type": "nominal"},
-                    {"field": "MNO", "type": "nominal"},
-                    {"field": "Latitude", "type": "quantitative"},
-                    {"field": "Longitude", "type": "quantitative"},
-                    {"field": "UMTS900", "type": "nominal"},
-                    {"field":"UMTS2100", "type": "nominal"},
-                    {"field":"LTE700", "type": "nominal"},
-                    {"field":"LTE900", "type": "nominal"},
-                    {"field":"LTE1800", "type": "nominal"},
-                    {"field":"LTE2300", "type": "nominal"},
-                    {"field":"LTE2600", "type": "nominal"},
-                    {"field":"RFNSA ID", "type": "nominal"},
-                    {"field":"Co_funded", "type": "nominal"},
-                    {"field":"Co_contribution_program", "type": "nominal"}
-              ]
-            }
-            
-            
-        }
-    ]
-    
+  "config": {
+    "view": {"stroke": null},
+    "legend": {"orient": "bottom-right", "direction": "horizontal"}
+  }
 }
