@@ -1,25 +1,83 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title":"Total site by MNO and state or territories - 2018 to 2023",
-    "data": {"url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20and%20state%20or%20territory%20-%202018%20to%202023.csv"},
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Total Sites by MNO and State/Territory",
+    "subtitle": "2018 to 2023",
+    "fontSize": 20,
+    "subtitleFontSize": 14
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20and%20state%20or%20territory%20-%202018%20to%202023.csv"
+  },
+  "params": [
+    {
+      "name": "MNO_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Optus", "Telstra", "TPG"],
+        "labels": ["All", "Optus", "Telstra", "TPG"],
+        "name": "Select MNO"
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "MNO_selection == null || datum.MNO == MNO_selection"}
+  ],
+  "facet": {
+    "column": {
+      "field": "State/territory",
+      "type": "ordinal",
+      "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"],
+      "header": {"labelAngle": 0, "labelAlign": "center", "labelFontSize": 12}
+    }
+  },
+  "spec": {
+    "width": 120,
+    "height": 200,
     "mark": {
       "type": "line",
-      "point": true
+      "point": {"filled": true, "size": 60},
+      "strokeWidth": 2
     },
     "encoding": {
-      "column": {"field": "State/territory"},
-      "x": {"field": "Year", "type": "ordinal"},
-      "y": {"field": "Number", "type": "quantitative"},
-      "color": {"field": "MNO", 
-      "type": "nominal",
-      "scale": {
-                  "domain": ["Optus", "Telstra", "TPG"],
-                  "range": ["red", "blue", "green"]}
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {"labelAngle": 45, "labelFontSize": 10}
       },
-      "tooltip":[
+      "y": {
+        "field": "Number",
+        "type": "quantitative",
+        "axis": {"titleFontSize": 12, "labelFontSize": 10},
+        "scale": {"zero": false}
+      },
+      "color": {
+        "field": "MNO", 
+        "type": "nominal",
+        "scale": {
+          "domain": ["Optus", "Telstra", "TPG"],
+          "range": ["#FFA500", "#0000FF", "#008000"]
+        },
+        "legend": {
+          "title": "Mobile Network Operator",
+          "titleFontSize": 12,
+          "labelFontSize": 10,
+          "orient": "top",
+          "direction": "horizontal"
+        }
+      },
+      "tooltip": [
         {"field": "MNO", "type": "nominal"},
-        {"field":"Number", "type": "quantitative"}
+        {"field": "State/territory", "type": "nominal"},
+        {"field": "Year", "type": "ordinal"},
+        {"field": "Number", "type": "quantitative", "format": ","}
       ]
     }
+  },
+  "config": {
+    "facet": {"spacing": 10},
+    "view": {"stroke": null},
+    "axis": {"domainColor": "#888", "tickColor": "#888"},
+    "legend": {"symbolSize": 80, "labelLimit": 0}
   }
-  
+}
