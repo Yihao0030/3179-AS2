@@ -1,0 +1,77 @@
+{ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Mobile Network Operator Sites by Remoteness Area",
+    "subtitle": "2018-2023",
+    "fontSize": 20,
+    "subtitleFontSize": 14
+  },
+  "width":
+  600,
+  "height": 400,
+  "data": {"url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20and%20remotedness%20area%20-%202018%20to%202023.csv"},
+  "transform": [
+    {"calculate": "toNumber(datum.Year)", "as": "YearNum"},
+    {"calculate": "toNumber(datum.Number)", "as": "NumberNum"}
+  ],
+  "params": [
+    {
+      "name": "area_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Major Cities of Australia",
+          "Inner Regional Australia",
+          "Outer Regional Australia",
+          "Remote Australia",
+          "Very Remote Australia"
+        ],
+        "labels": [
+          "Major Cities",
+          "Inner Regional",
+          "Outer Regional",
+          "Remote",
+          "Very Remote"
+        ],
+        "name": "Select Remoteness Area:"
+      }
+    }
+  ],
+  "mark": {"type": "area", "line": true, "point": true},
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {
+      "field": "Number",
+      "type": "quantitative",
+      "title": "Number of Sites",
+      "stack": "zero"
+    },
+    "color": {
+      "field": "MNO",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Optus", "Telstra", "TPG"],
+        "range": ["#FFA500", "#0000FF", "#008000"]
+      },
+      "title": "Mobile Network Operator"
+    },
+    "opacity": {"value": 0.7},
+    "tooltip": [
+      {"field": "MNO", "type": "nominal"},
+      {"field": "Year", "type": "ordinal"},
+      {"field": "ABS Remoteness Area", "type": "nominal"},
+      {"field": "NumberNum", "type": "quantitative", "title": "Number of Sites", "format": ","}
+    ]
+  },
+  "transform": [
+    {"filter": "datum['ABS Remoteness Area'] == area_selection"}
+  ],
+  "config": {
+    "axis": {"grid": true, "tickBand": "extent"},
+    "legend": {"orient": "top-left"}
+  }
+}
