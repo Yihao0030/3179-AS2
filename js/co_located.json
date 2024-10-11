@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Donut charts showing MNO combinations by year",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20co-location%20combination.csv"
+  },
+  "facet": {"column": {"field": "Year", "type": "ordinal", "title": "Year"}},
+  "spec": {
+    "width": 200,
+    "height": 200,
+    "mark": {"type": "arc", "innerRadius": 50},
+    "encoding": {
+      "theta": {"field": "Value", "type": "quantitative", "stack": true},
+      "color": {"field": "MNO", "type": "nominal", "title": "Mobile Network Operator"},
+      "tooltip": [
+        {"field": "MNO", "type": "nominal"},
+        {"field": "Value", "type": "quantitative", "format": ","}
+      ]
+    }
+  },
+  "config": {
+    "view": {"stroke": null},
+    "legend": {"orient": "bottom"}
+  },
+  "transform": [
+    {"calculate": "replace(datum.Value, ',', '')", "as": "ValueNumeric"},
+    {"calculate": "toNumber(datum.ValueNumeric)", "as": "Value"}
+  ]
+}
