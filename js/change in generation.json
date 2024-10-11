@@ -1,25 +1,81 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title":"Change in total site by MNO and network generation - 2018 to 2023",
-    "data": {"url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Change%20in%20Total%20number%20of%20sites%20by%20MNO%20and%20generation%20-%202018%20to%202023.csv"},
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Change in Total Sites by MNO and Network Generation",
+    "subtitle": "2018 to 2023",
+    "fontSize": 16,
+    "subtitleFontSize": 13
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Change%20in%20Total%20number%20of%20sites%20by%20MNO%20and%20generation%20-%202018%20to%202023.csv"
+  },
+  "params": [
+    {
+      "name": "MNO_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Optus", "Telstra", "TPG"],
+        "labels": ["All", "Optus", "Telstra", "TPG"],
+        "name": "Select MNO"
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "MNO_selection == null || datum.MNO == MNO_selection"}
+  ],
+  "facet": {
+    "column": {
+      "field": "Network Generation",
+      "type": "ordinal",
+      "sort": ["3G", "4G", "5G"],
+      "header": {"titleFontSize": 14, "labelFontSize": 12}
+    }
+  },
+  "spec": {
+    "width": 300,
+    "height": 200,
     "mark": {
       "type": "line",
-      "point": true
+      "point": {"filled": true, "size": 60},
+      "strokeWidth": 3
     },
     "encoding": {
-      "column": {"field": "Network Generation"},
-      "x": {"field": "Year", "type": "ordinal"},
-      "y": {"field": "Number", "type": "quantitative"},
-      "color": {"field": "MNO", 
-      "type": "nominal",
-      "scale": {
-                  "domain": ["Optus", "Telstra", "TPG"],
-                  "range": ["red", "blue", "green"]}
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "axis": {
+          "labelAngle": 0,
+          "titleFontSize": 12,
+          "labelFontSize": 10,
+          "tickCount": 6
+        }
       },
-      
-      "tooltip":[
+      "y": {
+        "field": "Number",
+        "type": "quantitative",
+        "axis": {"titleFontSize": 12, "labelFontSize": 10},
+        "scale": {"zero": false}
+      },
+      "color": {
+        "field": "MNO", 
+        "type": "nominal",
+        "scale": {
+          "domain": ["Optus", "Telstra", "TPG"],
+          "range": ["#FFA500", "#0000FF", "#008000"]
+        },
+        "legend": {"title": "Mobile Network Operator", "titleFontSize": 12, "labelFontSize": 10}
+      },
+      "tooltip": [
         {"field": "MNO", "type": "nominal"},
-        {"field":"Number", "type": "quantitative"}
+        {"field": "Network Generation", "type": "nominal"},
+        {"field": "Year", "type": "ordinal"},
+        {"field": "Number", "type": "quantitative", "format": ","}
       ]
     }
+  },
+  "config": {
+    "facet": {"spacing": 30},
+    "view": {"stroke": null},
+    "legend": {"orient": "bottom", "direction": "horizontal"}
   }
+}
