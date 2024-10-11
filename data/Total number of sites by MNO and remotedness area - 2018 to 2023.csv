@@ -1,151 +1,91 @@
-"MNO","State/territory","Year","Number"
-"Optus","ACT","2018","135"
-"Optus","ACT","2019","143"
-"Optus","ACT","2020","144"
-"Optus","ACT","2021","149"
-"Optus","ACT","2022","154"
-"Optus","ACT","2023","158"
-"Telstra","ACT","2018","102"
-"Telstra","ACT","2019","102"
-"Telstra","ACT","2020","117"
-"Telstra","ACT","2021","120"
-"Telstra","ACT","2022","122"
-"Telstra","ACT","2023","141"
-"TPG","ACT","2018","114"
-"TPG","ACT","2019","116"
-"TPG","ACT","2020","117"
-"TPG","ACT","2021","118"
-"TPG","ACT","2022","117"
-"TPG","ACT","2023","117"
-"Optus","NSW","2018","2409"
-"Optus","NSW","2019","2466"
-"Optus","NSW","2020","2620"
-"Optus","NSW","2021","2740"
-"Optus","NSW","2022","2897"
-"Optus","NSW","2023","2930"
-"Telstra","NSW","2018","2705"
-"Telstra","NSW","2019","2838"
-"Telstra","NSW","2020","2940"
-"Telstra","NSW","2021","3067"
-"Telstra","NSW","2022","3142"
-"Telstra","NSW","2023","3281"
-"TPG","NSW","2018","1849"
-"TPG","NSW","2019","1913"
-"TPG","NSW","2020","1933"
-"TPG","NSW","2021","2058"
-"TPG","NSW","2022","1959"
-"TPG","NSW","2023","1967"
-"Optus","NT","2018","82"
-"Optus","NT","2019","90"
-"Optus","NT","2020","95"
-"Optus","NT","2021","102"
-"Optus","NT","2022","108"
-"Optus","NT","2023","121"
-"Telstra","NT","2018","159"
-"Telstra","NT","2019","175"
-"Telstra","NT","2020","184"
-"Telstra","NT","2021","193"
-"Telstra","NT","2022","215"
-"Telstra","NT","2023","222"
-"TPG","NT","2018","44"
-"TPG","NT","2019","49"
-"TPG","NT","2020","52"
-"TPG","NT","2021","53"
-"TPG","NT","2022","53"
-"TPG","NT","2023","53"
-"Optus","QLD","2018","1404"
-"Optus","QLD","2019","1513"
-"Optus","QLD","2020","1532"
-"Optus","QLD","2021","1573"
-"Optus","QLD","2022","1622"
-"Optus","QLD","2023","1654"
-"Telstra","QLD","2018","2060"
-"Telstra","QLD","2019","2163"
-"Telstra","QLD","2020","2266"
-"Telstra","QLD","2021","2314"
-"Telstra","QLD","2022","2361"
-"Telstra","QLD","2023","2384"
-"TPG","QLD","2018","1034"
-"TPG","QLD","2019","1066"
-"TPG","QLD","2020","1078"
-"TPG","QLD","2021","1085"
-"TPG","QLD","2022","1085"
-"TPG","QLD","2023","1095"
-"Optus","SA","2018","618"
-"Optus","SA","2019","664"
-"Optus","SA","2020","684"
-"Optus","SA","2021","698"
-"Optus","SA","2022","725"
-"Optus","SA","2023","743"
-"Telstra","SA","2018","725"
-"Telstra","SA","2019","780"
-"Telstra","SA","2020","837"
-"Telstra","SA","2021","865"
-"Telstra","SA","2022","884"
-"Telstra","SA","2023","898"
-"TPG","SA","2018","451"
-"TPG","SA","2019","464"
-"TPG","SA","2020","463"
-"TPG","SA","2021","469"
-"TPG","SA","2022","466"
-"TPG","SA","2023","468"
-"Optus","TAS","2018","137"
-"Optus","TAS","2019","164"
-"Optus","TAS","2020","168"
-"Optus","TAS","2021","172"
-"Optus","TAS","2022","184"
-"Optus","TAS","2023","195"
-"Telstra","TAS","2018","276"
-"Telstra","TAS","2019","300"
-"Telstra","TAS","2020","318"
-"Telstra","TAS","2021","322"
-"Telstra","TAS","2022","325"
-"Telstra","TAS","2023","322"
-"TPG","TAS","2018","76"
-"TPG","TAS","2019","88"
-"TPG","TAS","2020","89"
-"TPG","TAS","2021","93"
-"TPG","TAS","2022","93"
-"TPG","TAS","2023","93"
-"Optus","VIC","2018","1851"
-"Optus","VIC","2019","1926"
-"Optus","VIC","2020","1971"
-"Optus","VIC","2021","2014"
-"Optus","VIC","2022","2095"
-"Optus","VIC","2023","2126"
-"Telstra","VIC","2018","2222"
-"Telstra","VIC","2019","2330"
-"Telstra","VIC","2020","2444"
-"Telstra","VIC","2021","2491"
-"Telstra","VIC","2022","2534"
-"Telstra","VIC","2023","2563"
-"TPG","VIC","2018","1335"
-"TPG","VIC","2019","1381"
-"TPG","VIC","2020","1403"
-"TPG","VIC","2021","1471"
-"TPG","VIC","2022","1408"
-"TPG","VIC","2023","1423"
-"Optus","WA","2018","699"
-"Optus","WA","2019","746"
-"Optus","WA","2020","766"
-"Optus","WA","2021","790"
-"Optus","WA","2022","847"
-"Optus","WA","2023","894"
-"Telstra","WA","2018","1180"
-"Telstra","WA","2019","1282"
-"Telstra","WA","2020","1344"
-"Telstra","WA","2021","1392"
-"Telstra","WA","2022","1417"
-"Telstra","WA","2023","1490"
-"TPG","WA","2018","519"
-"TPG","WA","2019","531"
-"TPG","WA","2020","540"
-"TPG","WA","2021","545"
-"TPG","WA","2022","547"
-"TPG","WA","2023","553"
-"Telstra","Other Territories","2018"," -   "
-"Telstra","Other Territories","2019","2"
-"Telstra","Other Territories","2020","1"
-"Telstra","Other Territories","2021","2"
-"Telstra","Other Territories","2022","2"
-"Telstra","Other Territories","2023","1"
+MNO,Year,ABS Remoteness Area,Number
+Optus,2018,Major Cities of Australia,4691
+Optus,2019,Major Cities of Australia,4758
+Optus,2020,Major Cities of Australia,4874
+Optus,2021,Major Cities of Australia,5037
+Optus,2022,Major Cities of Australia,5294
+Optus,2023,Major Cities of Australia,5416
+Telstra,2018,Major Cities of Australia,4736
+Telstra,2019,Major Cities of Australia,4800
+Telstra,2020,Major Cities of Australia,5059
+Telstra,2021,Major Cities of Australia,5166
+Telstra,2022,Major Cities of Australia,5257
+Telstra,2023,Major Cities of Australia,5493
+TPG,2018,Major Cities of Australia,4207
+TPG,2019,Major Cities of Australia,4268
+TPG,2020,Major Cities of Australia,4306
+TPG,2021,Major Cities of Australia,4503
+TPG,2022,Major Cities of Australia,4337
+TPG,2023,Major Cities of Australia,4383
+Optus,2018,Inner Regional Australia,1374
+Optus,2019,Inner Regional Australia,1534
+Optus,2020,Inner Regional Australia,1611
+Optus,2021,Inner Regional Australia,1677
+Optus,2022,Inner Regional Australia,1768
+Optus,2023,Inner Regional Australia,1803
+Telstra,2018,Inner Regional Australia,1820
+Telstra,2019,Inner Regional Australia,2020
+Telstra,2020,Inner Regional Australia,2105
+Telstra,2021,Inner Regional Australia,2176
+Telstra,2022,Inner Regional Australia,2218
+Telstra,2023,Inner Regional Australia,2246
+TPG,2018,Inner Regional Australia,757
+TPG,2019,Inner Regional Australia,813
+TPG,2020,Inner Regional Australia,836
+TPG,2021,Inner Regional Australia,849
+TPG,2022,Inner Regional Australia,852
+TPG,2023,Inner Regional Australia,853
+Optus,2018,Outer Regional Australia,959
+Optus,2019,Outer Regional Australia,1074
+Optus,2020,Outer Regional Australia,1124
+Optus,2021,Outer Regional Australia,1145
+Optus,2022,Outer Regional Australia,1171
+Optus,2023,Outer Regional Australia,1172
+Telstra,2018,Outer Regional Australia,1553
+Telstra,2019,Outer Regional Australia,1723
+Telstra,2020,Outer Regional Australia,1815
+Telstra,2021,Outer Regional Australia,1878
+Telstra,2022,Outer Regional Australia,1921
+Telstra,2023,Outer Regional Australia,1919
+TPG,2018,Outer Regional Australia,400
+TPG,2019,Outer Regional Australia,458
+TPG,2020,Outer Regional Australia,465
+TPG,2021,Outer Regional Australia,470
+TPG,2022,Outer Regional Australia,469
+TPG,2023,Outer Regional Australia,465
+Optus,2018,Remote Australia,191
+Optus,2019,Remote Australia,209
+Optus,2020,Remote Australia,225
+Optus,2021,Remote Australia,228
+Optus,2022,Remote Australia,242
+Optus,2023,Remote Australia,254
+Telstra,2018,Remote Australia,611
+Telstra,2019,Remote Australia,655
+Telstra,2020,Remote Australia,668
+Telstra,2021,Remote Australia,690
+Telstra,2022,Remote Australia,708
+Telstra,2023,Remote Australia,720
+TPG,2018,Remote Australia,50
+TPG,2019,Remote Australia,61
+TPG,2020,Remote Australia,60
+TPG,2021,Remote Australia,62
+TPG,2022,Remote Australia,62
+TPG,2023,Remote Australia,60
+Optus,2018,Very Remote Australia,120
+Optus,2019,Very Remote Australia,147
+Optus,2020,Very Remote Australia,146
+Optus,2021,Very Remote Australia,151
+Optus,2022,Very Remote Australia,157
+Optus,2023,Very Remote Australia,176
+Telstra,2018,Very Remote Australia,709
+Telstra,2019,Very Remote Australia,761
+Telstra,2020,Very Remote Australia,804
+Telstra,2021,Very Remote Australia,856
+Telstra,2022,Very Remote Australia,898
+Telstra,2023,Very Remote Australia,924
+TPG,2018,Very Remote Australia,8
+TPG,2019,Very Remote Australia,8
+TPG,2020,Very Remote Australia,8
+TPG,2021,Very Remote Australia,8
+TPG,2022,Very Remote Australia,8
+TPG,2023,Very Remote Australia,8
