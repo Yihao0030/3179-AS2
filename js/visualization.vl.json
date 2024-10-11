@@ -1,69 +1,120 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 600,
-    "data": {
-      "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk10/refs/heads/main/data/Mobile%20services%20in%20operation%20(SIOs)%20by%20provider.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": {
+    "text": "Mobile Services in Operation (SIOs) by Provider",
+    "subtitle": "December 2020 to June 2023, with % of Total",
+    "fontSize": 20,
+    "subtitleFontSize": 14
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk10/refs/heads/main/data/Mobile%20services%20in%20operation%20(SIOs)%20by%20provider.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.operator != ' total'"
     },
-    "mark": "bar",
-    "params": [
-      {
-        "name": "operator_selection",
-        "bind": {
-          "input": "select",
-          "options": [null, "telstra", "optus", "tpg"],
-          "labels": ["Show All", "telstra", "optus", "tpg"],
-          "name": "operator selection"
-        }
-      }
-    ],
-    "transform": [
-      {
-        "filter": "operator_selection == null || datum.operator == operator_selection"
-      }
-    ],
-    "encoding": {
-      "x": {"field": "date", "type": "ordinal", "title": "Month of the year"},
-      "y": {"field": "sio", "type": "quantitative", "title": null}
+    {
+      "calculate": "datum.operator == ' total' ? 'total' : datum.operator",
+      "as": "operator_clean"
     },
-    "layer": [
-      {
-        "mark": "bar",
-        "encoding": {
-          "color": {
-            "field": "operator",
-            "type": "nominal",
-            "scale": {
-              "domain": ["telstra", "optus", "tpg"],
-              "range": ["red", "blue", "green"]
-            },
-            "title": "MNO"
-          },
-          "tooltip": [
-            {"field": "operator", "type": "nominal"},
-            {"field": "sio", "type": "quantitative"},
-            {"field": "date", "type": "ordinal"}
-          ]
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "baseline": "top",
-          "dx": 0,
-          "fontSize": 9,
-          "fontStyle": "italic"
+    {
+      "lookup": "date",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Yihao0030/3179-hmwk10/refs/heads/main/data/Mobile%20services%20in%20operation%20(SIOs)%20by%20provider.csv"
         },
-        "encoding": {
-          "text": {"field": "sio", "type": "nominal"},
-          "color": {"value": "black"},
-          "opacity": {
-            "condition": {"test": "datum['operator'] == 'total'", "value": 1},
-            "value": 0
-          }
+        "key": "date",
+        "fields": ["sio"]
+      },
+      "as": ["total_sio"]
+    },
+    {
+      "filter": "datum.operator_clean != 'total'"
+    },
+    {
+      "calculate": "(datum.sio / datum. total_sio) * 100",
+      "as": "percentage"
+    }
+  ],
+  "params": [
+    {
+      "name": "operator_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "telstra", "optus", "tpg"],
+        "labels": ["All", "Telstra", "Optus", "TPG"],
+        "name": "Select Provider:"
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "ordinal",
+          "title": "Date",
+          "axis": {"labelAngle": -45}
+        },
+        "y": {
+          "field": "sio",
+          "type": "quantitative",
+          "title": "Services in Operation (thousands)",
+          "axis": {"format": ",.0f"}
+        },
+        "color": {
+          "field": "operator_clean",
+          "type": "nominal",
+          "scale": {
+            "domain": ["telstra", "optus", "tpg"],
+            "range": ["#0000FF", "#FFA500", "#008000"]
+          },
+          "title": "Provider"
+        },
+        "tooltip": [
+          {"field": "operator_clean", "type": "nominal", "title": "Provider"},
+          {"field": "sio", "type": "quantitative", "title": "SIOs", "format": ",.0f"},
+          {"field": "date", "type": "ordinal", "title": "Date"},
+          {"field": "percentage", "type": "quantitative", "title": "% of Total", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "fontSize": 10
+      },
+      "encoding": {
+        "x": {"field": "date", "type": "ordinal"},
+        "y": {"field": "sio", "type": "quantitative"},
+        "text": {"field": "percentage", "type": "quantitative", "format": ".1f"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {"test": "datum.operator_clean != 'total'", "value": 1},
+          "value": 0
         }
       }
-    ],
-    "config": {}
+    }
+  ],
+  "config": {
+    "axis": {
+      "gridColor": "#DCDCDC"
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11,
+      "symbolSize": 100,
+      "orient": "top-right"
+    },
+    "view": {"stroke": null}
   }
+}
