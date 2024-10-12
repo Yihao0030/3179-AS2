@@ -1,89 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>The growth of Australian Mobile Network and the coverage analysis</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Australian Mobile Network Operators Dashboard</title>
+    <!--import pure css-->>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <!--import vegalite-->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <header>
-        <h1>Australian Mobile Network Operators Dashboard</h1>
-    </header>
-    <main>
-        <section class="viz-container">
-            <div class="viz-item">
-                <div class="viz" id="viz1"></div>
-                <div class="viz-text">
-                    <h3>Total MNO</h3>
-                    <p></p>
-                </div>
+  <div class="page">
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <h1>The growth of Australian Mobile Network and the coverage research</h1>
+            <p>ID:31983707 Name:Yihao Ye</p>
+        </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id="viz1" class = "viz-container">
             </div>
-            <div class="viz-item">
-                <div class="viz" id="viz2"></div>
-                <div class="viz-text">
-                    <h3>Access Connection</h3>
-                    <p></p>
-                </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div id="viz9" class="viz-container">
             </div>
-            <div class="viz-item">
-                <div class="viz" id="viz3"></div>
-                <div class="viz-text">
-                    <h3>Change in Generation</h3>
-                    <p></p>
-                </div>
+        </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+          <div class="description">
+            <h2>Total status of the local Mobile Network Operator(MNO)</h2>
+            <p>The first 2 visualisation has stated the genenral information of the 3 local MNO: Telstra, Optus and TPG.
+              In general, Telstra has the largest number of mobile network towers, followed by Optus and TPG.
+              The number of towers of the three MNOs has been increasing over the years, and the number of towers of Telstra has been increasing the fastest among the three MNO.
+              In mobile services in operation(SIO), Telstra has the largest number of SIO, followed by Optus and TPG, which is consistent with the number of towers.
+              A interesting thing is that the number of SIO of TPG is less than the number of towers, which may be due to the fact that TPG has not yet fully utilized the towers it has built.
+              It also explains why TPG has the lowest number of tower among three MNOs, the growth of number of tower is tiny also.
+              Telstra is the opposite, with more SIO than towers.
+            </p>
+          </div>
+      </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id="viz2" class="viz-container">
             </div>
-            <div class="viz-item">
-                <div class="viz" id="viz4"></div>
-                <div class="viz-text">
-                    <h3>Change in Total</h3>
-                    <p></p>
-                </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="description description-right">
+              <h2>Access of connection</h2>
+              <p>The second part of the report is about the total access type about the time.
+                Base on the visualisation, it is claerly that mobile access types are the dominant access type in the past few years.
+                Postpaid mobile access type has the largest number of connections, followed by prepaid mobile access type and mobile boardband in mobile access.
+                With the development of technology, the data collection has become more diverse, which leads to the increase of the type of access.
+                Home wireless broadband access type has the come to the visualisation in Dec 2021, and grow rapidly, now it has the second largest number of connections in the access type.
+              </p>
             </div>
-            <div class="viz-item">
-                <div class="viz" id="viz5"></div>
-                <div class="viz-text">
-                    <h3>Co-located Sites</h3>
-                    <p></p>
-                </div>
+        </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+          <div id="viz6" class="viz-container"></div>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+          <div class="description">
+            <h2>Distribution of the towers</h2>
+            <p>The third part of the report is about the change in generation of the mobile network.
+              This map shows the distribution of the towers of the three MNOs in Australia.
+              Overall, the distribution of towers is relatively concentrated in the eastern part of Australia, especially in the southeast.
+              Relatively speaking, the distribution of Telstra towers is more extensive, and the towers are distributed in more remote areas.
+              Optus towers are mainly distributed in the southeast, and the density of the towers in the southeast is low compared to Telstra.
+              TPG towers are mainly distributed in the east coastline and southeast, and the density of the towers is the lowest among the three MNOs.
+              The distribution of towers is consistent with the population distribution of Australia, and the distribution of towers is relatively concentrated in the southeast where the population is concentrated.
+              Above all, the result in the map is consistent with the general information of the three MNOs.
+            </p>
+          </div>
+      </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+            <div id="viz3" class="viz-container">
             </div>
-            <div class="viz-item">
-                <div class="viz" id="viz6"></div>
-                <div class="viz-text">
-                    <h3>Map</h3>
-                    <p></p>
-                </div>
+        </div>
+        <div class="pure-u-1-3">
+            <div class="description description-right">
+              <h2>The change with the Network Generation</h2>
+              <p>Left side is the visualisation about the change in total number of tower for each network generation.
+                One thing that can be seen from the visualisation is that the number of 3G tower of the three MNOs has been decreasing over the years.
+                In detail, optus has cut off the most 3G towers, followed by Telstra and TPG, which fits with the strategy of optus to shut down 3G network in Oct 2024.
+                For 4G towers, the number of towers of the three MNOs has been increasing over the years besides 2021 to 2022, TPG even reduced the number of 4G towers in 2021 to 2022.
+                Start from 2019, three MNOs have started to build 5G towers, and the number of 5G towers has been increasing rapidly.
+                Telstra has built a huge amont of 5G towers in 2020 to 2021, and the growth of 5G tower of Telstra has drop since then.  
+              </p>
             </div>
-            <div class="viz-item">
-                <div class="viz" id="viz7"></div>
-                <div class="viz-text">
-                    <h3>Remoteness Area</h3>
-                    <p></p>
-                </div>
+        </div>
+    </div>
+    <div>
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+            <h2>The change with the total number of towers</h2>
+            <p>Come to the change of the total number of towers, the change has become not as rapidly as the previous visualisation.
+              It has suggested that the change of number of towers in generation does not have a significant impact on the total number of towers.
+              It may due to that some towers are still in use after the generation has been upgraded, and the number of the tower that has built in new is not that much.
+              The total number of towers of the three MNOs has been increasing over the years, and the number of towers of Telstra has been increasing the fastest among the three MNO.
+              Overall, it keeps consistent with the 4G tower change in the previous visualisation.
+            </p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+          <div id="viz4" class="viz-container">
+          </div>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+          <div id="viz5" class="viz-container">
+          </div>
+      </div>
+      <div class="pure-u-1-3">
+          <div class="description description-right">
+            <h2>Co-located towers</h2>
+            <p>The visualisation has shown the built up of the tower for each MNO in more specific point.
+              Most of the towers of Telstra are self-built, and the number of co-located towers is relatively small compare to Telstra-Only towers.
+              Optus is the opposite, with more co-located towers than self-built towers, around two third of towers are co-located.
+              TPG is the most co-located tower among the three MNOs, with more than 80% of towers are co-located.
+              It is also noticed that the number of towers that are co-located by 3 MNOs is huge.
+              The growth of co-located towers is slower than the self-built towers, which may be due to the fact that the number of towers that can be co-located is limited.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id="viz7" class="viz-container"></div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="description description-right">
+              <h2>Remoteness area, State and Territory</h2>
+              <p>The last part is the sites in the remoteness area and the state and territory.
+                Overall, the trend is consistent with the general information of the three MNOs.
+                Telstra has the largest number of towers in all remoteness areas, followed by Optus and TPG.
+                Most of the towers of the three MNOs are located in the major cities, followed by the inner regional area.
+                From the perspective of the state and territory, the distribution of towers is consistent with the population distribution of Australia, which most of the towers are in NSW, VIC AND QLD.
+                A noticable thing is that telstra is the only MNO that has towers in all state and territory, and the number of towers in each state and territory is the largest among the three MNOs besides ACT, where Optus owned more towers.
+                Another thing is that the number of towers of TPG is the smallest in all state and territory, and TPG has no tower in very remoted area.
+              </p>
             </div>
-            <div class="viz-item">
-                <div class="viz" id="viz8"></div>
-                <div class="viz-text">
-                    <h3>Total States</h3>
-                    <p></p>
-                </div>
-            </div>
-            <div class="viz-item">
-                <div class="viz" id="viz9"></div>
-                <div class="viz-text">
-                    <h3>Visualization</h3>
-                    <p></p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Australian Mobile Network Operators Dashboard</p>
-    </footer>
-
+      </div>
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+            <div id="viz8" class="viz-container"></div>
+        </div>
+      </div>
+    </div>
+  
     <script>
         // Function to load and render visualizations
         function loadViz(elementId, jsonPath) {
