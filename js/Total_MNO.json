@@ -1,50 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Change in Total Sites by Mobile Network Operator",
-    "subtitle": "2018 to 2023",
-    "fontSize": 16,
-    "subtitleFontSize": 13
+    "text": "Number of Sites by Mobile Network Operator",
+    "subtitle": "2018-2023",
+    "fontSize": 20,
+    "subtitleFontSize": 14
   },
   "width": 500,
   "height": 300,
   "data": {
-    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Change%20in%20Total%20number%20of%20sites%20by%20MNO%20-%202018%20to%202023.csv"
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20-%202018%20to%202023.csv"
   },
-  "mark": {
-    "type": "line",
-    "point": {"filled": true, "size": 60},
-    "strokeWidth": 3
-  },
+  "mark": "bar",
   "encoding": {
     "x": {
       "field": "Year",
       "type": "ordinal",
-      "axis": {"labelAngle": 0, "titleFontSize": 12, "labelFontSize": 10}
+      "axis": {"labelAngle": 0}
     },
     "y": {
       "field": "Number",
       "type": "quantitative",
-      "axis": {"titleFontSize": 12, "labelFontSize": 10},
-      "scale": {"zero": false}
+      "title": "Number of Sites",
+      "axis": {"grid": false}
     },
+    "xOffset": {"field": "MNO"},
     "color": {
-      "field": "MNO", 
+      "field": "MNO",
       "type": "nominal",
       "scale": {
         "domain": ["Optus", "Telstra", "TPG"],
         "range": ["#FFA500", "#0000FF", "#008000"]
       },
-      "legend": {
-        "title": "Mobile Network Operator",
-        "titleFontSize": 12,
-        "labelFontSize": 10,
-        "orient": "top-right",
-        "direction": "vertical",
-        "offset": 0,
-        "symbolSize": 100,
-        "labelOffset": 5
-      }
+      "legend": {"title": "Mobile Network Operator"}
     },
     "tooltip": [
       {"field": "MNO", "type": "nominal"},
@@ -53,11 +41,7 @@
     ]
   },
   "config": {
-    "view": {"stroke": null},
-    "legend": {
-      "padding": 0,
-      "fillColor": null,
-      "strokeColor": null
-    }
+    "bar": {"cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+    "view": {"stroke": null}
   }
 }
