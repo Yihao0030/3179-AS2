@@ -8,6 +8,7 @@ h1 {
 
 body {
     background-color: lightgray;
+    align-itema:center;
 }
 
 .page {
@@ -20,7 +21,7 @@ body {
 
 .vis-container {
     width: auto;
-    align-itema:center;
+    
 }
 
 .description h2,
