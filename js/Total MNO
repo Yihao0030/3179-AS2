@@ -1,50 +1,63 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Types of Access Connections Over Time",
-    "subtitle": "June 2019 to June 2023",
+    "text": "Change in Total Sites by Mobile Network Operator",
+    "subtitle": "2018 to 2023",
     "fontSize": 16,
     "subtitleFontSize": 13
   },
-  "width": 600,
-  "height": 400,
+  "width": 500,
+  "height": 300,
   "data": {
-    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Volume%20of%20data%20downloaded%20by%20type%20of%20access%20connection.csv"
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Change%20in%20Total%20number%20of%20sites%20by%20MNO%20-%202018%20to%202023.csv"
   },
-  "transform": [
-    {"fold": ["Jun-19", "Dec-19", "Jun-20", "Dec-20", "Jun-21", "Dec-21", "Jun-22", "Dec-22", "Jun-23"], "as": ["Date", "Value"]},
-    {"filter": "datum.Value != null"},
-    {"calculate": "replace(datum.Value, ',', '')", "as": "Value"},
-    {"calculate": "toNumber(datum.Value)", "as": "Value"}
-  ],
-  "mark": "bar",
+  "mark": {
+    "type": "line",
+    "point": {"filled": true, "size": 60},
+    "strokeWidth": 3
+  },
   "encoding": {
     "x": {
-      "field": "Date",
+      "field": "Year",
       "type": "ordinal",
-      "axis": {"labelAngle": -45, "title": "Date"}
+      "axis": {"labelAngle": 0, "titleFontSize": 12, "labelFontSize": 10}
     },
     "y": {
-      "field": "Value",
+      "field": "Number",
       "type": "quantitative",
-      "axis": {"title": "Number of Connections", "format": "~s"}
+      "axis": {"titleFontSize": 12, "labelFontSize": 10},
+      "scale": {"zero": false}
     },
     "color": {
-      "field": "Type of access connection",
+      "field": "MNO", 
       "type": "nominal",
       "scale": {
-        "domain": ["Total pre-paid mobile", "Total post-paid mobile", "Total mobile broadband", "Total M2M", "Total Home Wireless Broadband"],
-        "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
+        "domain": ["Optus", "Telstra", "TPG"],
+        "range": ["#FFA500", "#0000FF", "#008000"]
+      },
+      "legend": {
+        "title": "Mobile Network Operator",
+        "titleFontSize": 12,
+        "labelFontSize": 10,
+        "orient": "top-right",
+        "direction": "vertical",
+        "offset": 0,
+        "symbolSize": 100,
+        "labelOffset": 5
       }
     },
     "tooltip": [
-      {"field": "Type of access connection", "type": "nominal", "title": "Type"},
-      {"field": "Date", "type": "ordinal"},
-      {"field": "Value", "type": "quantitative", "format": ","}
+      {"field": "MNO", "type": "nominal"},
+      {"field": "Year", "type": "ordinal"},
+      {"field": "Number", "type": "quantitative", "format": ","}
     ]
   },
   "config": {
-    "bar": {"cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
-    "view": {"stroke": null}
+    "view": {"stroke": null},
+    "legend": {
+      "padding": 0,
+      "fillColor": null,
+      "strokeColor": null
+    }
   }
 }
