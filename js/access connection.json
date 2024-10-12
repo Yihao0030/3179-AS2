@@ -9,17 +9,13 @@
   "width": 600,
   "height": 400,
   "data": {
-    "values": [
-      {"Type": "Total pre-paid mobile", "Jun-19": 122909, "Dec-19": 140065, "Jun-20": 153384, "Dec-20": 162721, "Jun-21": 178180, "Dec-21": 171879, "Jun-22": 189042, "Dec-22": 228370, "Jun-23": 247354},
-      {"Type": "Total post-paid mobile", "Jun-19": 422646, "Dec-19": 471726, "Jun-20": 484005, "Dec-20": 523618, "Jun-21": 622134, "Dec-21": 611556, "Jun-22": 669707, "Dec-22": 804366, "Jun-23": 868311},
-      {"Type": "Total mobile broadband", "Jun-19": 143994, "Dec-19": 146878, "Jun-20": 175303, "Dec-20": 245847, "Jun-21": 250740, "Dec-21": 131491, "Jun-22": 144530, "Dec-22": 151813, "Jun-23": 159169},
-      {"Type": "Total M2M", "Jun-19": null, "Dec-19": null, "Jun-20": null, "Dec-20": null, "Jun-21": null, "Dec-21": 10866, "Jun-22": 11518, "Dec-22": 11867, "Jun-23": 12357},
-      {"Type": "Total Home Wireless Broadband", "Jun-19": null, "Dec-19": null, "Jun-20": null, "Dec-20": null, "Jun-21": null, "Dec-21": 191975, "Jun-22": 261465, "Dec-22": 352876, "Jun-23": 442959}
-    ]
+    "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Volume%20of%20data%20downloaded%20by%20type%20of%20access%20connection.csv"
   },
   "transform": [
     {"fold": ["Jun-19", "Dec-19", "Jun-20", "Dec-20", "Jun-21", "Dec-21", "Jun-22", "Dec-22", "Jun-23"], "as": ["Date", "Value"]},
-    {"filter": "datum.Value != null"}
+    {"filter": "datum.Value != null"},
+    {"calculate": "replace(datum.Value, ',', '')", "as": "Value"},
+    {"calculate": "toNumber(datum.Value)", "as": "Value"}
   ],
   "mark": "bar",
   "encoding": {
@@ -34,7 +30,7 @@
       "axis": {"title": "Number of Connections", "format": "~s"}
     },
     "color": {
-      "field": "Type",
+      "field": "Type of access connection",
       "type": "nominal",
       "scale": {
         "domain": ["Total pre-paid mobile", "Total post-paid mobile", "Total mobile broadband", "Total M2M", "Total Home Wireless Broadband"],
@@ -42,7 +38,7 @@
       }
     },
     "tooltip": [
-      {"field": "Type", "type": "nominal"},
+      {"field": "Type of access connection", "type": "nominal", "title": "Type"},
       {"field": "Date", "type": "ordinal"},
       {"field": "Value", "type": "quantitative", "format": ","}
     ]
