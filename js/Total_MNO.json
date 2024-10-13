@@ -6,8 +6,8 @@
     "fontSize": 20,
     "subtitleFontSize": 14
   },
-  "width": 500,
-  "height": 300,
+  "width": 750,
+  "height": 536,
   "data": {
     "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20-%202018%20to%202023.csv"
   },
