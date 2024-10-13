@@ -32,8 +32,8 @@
     }
   },
   "spec": {
-    "width": 400,
-    "height": 200,
+    "width": 430,
+    "height": 300,
     "mark": {
       "type": "line",
       "point": {"filled": true, "size": 60},
