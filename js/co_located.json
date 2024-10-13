@@ -6,7 +6,7 @@
   },
   "facet": {"column": {"field": "Year", "type": "ordinal", "title": "Year"}},
   "spec": {
-    "width": 200,
+    "width": 210,
     "height": 200,
     "mark": {"type": "arc", "innerRadius": 50},
     "encoding": {
