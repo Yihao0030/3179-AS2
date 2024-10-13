@@ -6,7 +6,6 @@
     "fontSize": 20,
     "subtitleFontSize": 14
   },
-  "width":1400,
   "data": {
     "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Total%20number%20of%20sites%20by%20MNO%20and%20state%20or%20territory%20-%202018%20to%202023.csv"
   },
@@ -33,7 +32,7 @@
     }
   },
   "spec": {
-    "width": 120,
+    "width": 140,
     "height": 200,
     "mark": {
       "type": "line",
