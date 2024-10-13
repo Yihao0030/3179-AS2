@@ -6,6 +6,7 @@
     "fontSize": 16,
     "subtitleFontSize": 13
   },
+  width:1000,
   "data": {
     "url": "https://raw.githubusercontent.com/Yihao0030/3179-AS2/refs/heads/main/data/Change%20in%20Total%20number%20of%20sites%20by%20MNO%20and%20generation%20-%202018%20to%202023.csv"
   },
